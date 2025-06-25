@@ -4,11 +4,13 @@ const dotEnv = require('dotenv')
 const cookie_parser = require('cookie-parser')
 const session = require('express-session')
 const route = require('./routes/Authroutes')
+const cors = require('cors')
 
 const app = express()
-const PORT = 4000 
+const PORT = 4000
+app.use(express.json()) 
 dotEnv.config()
-
+app.use(cors())
 
 
 mongoose.connect(process.env.mongoo_uri)
@@ -18,6 +20,21 @@ mongoose.connect(process.env.mongoo_uri)
     console.log(error.message);
 })
 
+
+
+
+app.use(session({
+    name:"connect.sid",
+    secret:process.env.secret_key,
+    resave:false,
+    saveUninitialized:false,
+    cookie:{
+        httpOnly:true,
+        maxAge: 1000 * 60 * 60 * 24,
+        secure:false
+    }
+}
+))
 
 app.use('/auth',route);
 
