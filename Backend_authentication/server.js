@@ -1,16 +1,21 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const dotEnv = require('dotenv')
-const cookie_parser = require('cookie-parser')
+const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const route = require('./routes/Authroutes')
 const cors = require('cors')
 
+
 const app = express()
 const PORT = 4000
-app.use(express.json()) 
+app.use(express.json())
+app.use(cookieParser()) 
 dotEnv.config()
-app.use(cors())
+app.use(cors({
+    origin:'http://localhost:5173',
+    credentials:true
+}))
 
 
 mongoose.connect(process.env.mongoo_uri)
@@ -19,8 +24,6 @@ mongoose.connect(process.env.mongoo_uri)
 }).catch((error)=>{
     console.log(error.message);
 })
-
-
 
 
 app.use(session({
@@ -37,6 +40,7 @@ app.use(session({
 ))
 
 app.use('/auth',route);
+
 
 
 
