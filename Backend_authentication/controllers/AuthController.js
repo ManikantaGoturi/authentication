@@ -1,15 +1,19 @@
 const bcrypt = require('bcryptjs');
 const Authmodel = require('../models/Authmodel')
 
-exports.register = async(req,res)=>{
-    const {username,password,email,phone} = req.body;
-    const hashed = await bcrypt.hash(password,10)
-    const user = new Authmodel({
-        username,password:hashed,email,phone
-    })
-    await user.save();
-    res.json({"message":"user registered!"})
-    
+exports.register = async (req, res) => {
+    try {
+        const { username, password, email, phone } = req.body;
+        const hashed = await bcrypt.hash(password, 10);
+        const user = new Authmodel({
+            username, password: hashed, email, phone
+        });
+        await user.save();
+        res.json({ "message": "user registered!" });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "Registration failed", error: err.message });
+    }
 }
 
 exports.login = async(req,res) =>{

@@ -17,13 +17,13 @@ const App = () => {
     setSearchValue(value);
   }
 
-  const fullPageRoutes = ['/register','/login'];
+  const fullPageRoutes = ['/','/login'];
   const isFullPage = fullPageRoutes.includes(location.pathname);
 
   if(isFullPage){
     return(
       <Routes>
-        <Route path="/register" element={<Register_file/>}/>
+        <Route path="/" element={<Register_file/>}/>
         <Route path="/login" element={<Login_file/>}/>
       </Routes>
     );
@@ -39,11 +39,9 @@ const App = () => {
         <div className="p-4 md:p-6 bg-gray-50 flex-1">
           <Routes>
             <Route path="/employee" element={<Employee searchValue={searchValue}/>} />
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/report" element={<Reports/>}/>
             <Route path="/settings" element={<Settings/>}/>
-            <Route path="/register" element={<Register_file/>}/>
-            <Route path="/login" element={<Login_file/>}/>
           </Routes>
         </div>
       </div>

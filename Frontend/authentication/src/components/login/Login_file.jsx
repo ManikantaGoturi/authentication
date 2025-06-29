@@ -28,7 +28,7 @@ const Login_file = () => {
       })
       if(response.ok){
         alert("Login Successfull!")
-        navigate("/")
+        navigate("/dashboard")
       }else{
         alert("Login Failed!!")
       }
