@@ -1,7 +1,6 @@
-
-.background-container {
-  height: 100vh;
-  width:100vw;
+.backgroundContainer {
+  height: 120vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,7 +17,7 @@
   text-shadow: 1px 1px 8px #222;
 }
 
-form {
+.form {
   background: rgba(255, 255, 255, 0.92);
   padding: 32px 28px;
   border-radius: 12px;
@@ -26,18 +25,23 @@ form {
   min-width: 320px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 18px;
 }
 
-.username-container,
-.password-container {
+.usernameContainer,
+.passwordContainer,
+.emailContainer,
+.phoneContainer {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.username-input,
-.password-input {
+.usernameInput,
+.passwordInput,
+.emailInput,
+.phoneInput {
   padding: 8px 12px;
   border: 1px solid #bbb;
   border-radius: 5px;
@@ -46,38 +50,40 @@ form {
   transition: border 0.2s;
 }
 
-.username-input:focus,
-.password-input:focus {
+.usernameInput:focus,
+.passwordInput:focus,
+.emailInput:focus,
+.phoneInput:focus {
   border: 1.5px solid #007bff;
 }
 
-.options-container {
+.optionsContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.checkbox-container {
+.checkboxContainer {
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-.forgot-container {
+.forgotContainer {
   font-size: 0.95rem;
 }
 
-.forgot-link {
+.forgotLink {
   color: #007bff;
   text-decoration: none;
   transition: text-decoration 0.2s;
 }
 
-.forgot-link:hover {
+.forgotLink:hover {
   text-decoration: underline;
 }
 
-.submit-btn {
+.submitBtn {
   margin-top: 10px;
   padding: 10px 0;
   background: #007bff;
@@ -89,7 +95,6 @@ form {
   transition: background 0.2s;
 }
 
-.submit-btn:hover {
+.submitBtn:hover {
   background: #0056b3;
 }
-

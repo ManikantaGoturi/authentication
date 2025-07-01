@@ -9,7 +9,7 @@ const Sidebar = () => {
       <div className="sidebar h-screen w-64 bg-gray-800 text-white flex flex-col p-6">
         <img src={logo} alt="Logo"/>
         <ul className="space-y-4">
-          <Link to="/">
+          <Link to="/dashboard">
             <li className="flex items-center px-2 py-2 rounded hover:bg-gray-700 cursor-pointer transition">
             <FaHome className="text-lg" />
             <span className="ml-3">Dashboard</span>

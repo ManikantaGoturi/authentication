@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const base_url = 'http://localhost:8080/api';
+const base_url = 'http://localhost:4000/api';
 
 const Dashboard = () => {
   const [counts, setCounts] = useState({

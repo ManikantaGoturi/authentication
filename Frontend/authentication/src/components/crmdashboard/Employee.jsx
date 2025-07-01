@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 
-const base_url = 'http://localhost:8080/api';
+const base_url = 'http://localhost:4000/api';
 
 const Employee = ({searchValue}) => {
   const [employee_id, setEmployeeId] = useState('');

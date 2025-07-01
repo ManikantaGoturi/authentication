@@ -1,12 +1,30 @@
 import React, { useState } from 'react';
 import profile_logo from '../../assets/profile_icon.png';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = ({ onSearch }) => {
   const [search, setSearch] = useState('');
+  const navigate = useNavigate();
 
   const handleSearch = (e) => {
     e.preventDefault();
     if (onSearch) onSearch(search);
+  };
+
+   const handleLogout = async () => {
+    try {
+      const response = await fetch('http://localhost:4000/auth/logout', {
+        method: 'POST',
+        credentials: 'include'
+      });
+      if (response.ok) {
+        navigate('/login');
+      } else {
+        alert('Logout failed!');
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   
@@ -33,7 +51,7 @@ const Navbar = ({ onSearch }) => {
                         <img src={profile_logo} className="w-10 cursor-pointer" alt="profile" />
                         <ul className="absolute top-10 right-0 bg-white shadow border border-gray-200 py-2.5 w-30 rounded-md text-sm z-40 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-opacity">
                           <li className="p-1.5 pl-3 hover:bg-primary/10 cursor-pointer" onClick="">settings</li>
-                          <li className="p-1.5 pl-3 hover:bg-primary/10 cursor-pointer" onClick="">Logout</li>
+                          <li className="p-1.5 pl-3 hover:bg-primary/10 cursor-pointer" onClick={handleLogout}>Logout</li>
                         </ul>
                       </div>
                     </div> 

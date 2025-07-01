@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Label } from 'recharts';
 
-const base_url = 'http://localhost:8080/api';
+const base_url = 'http://localhost:4000/api';
 
 const Reports = () => {
   const [performanceData, setPerformanceData] = useState([]);
